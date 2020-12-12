@@ -1,0 +1,9 @@
+[package]
+name = "day7-rust"
+version = "0.1.0"
+authors = ["aoc2020"]
+edition = "2018"
+
+[dependencies]
+regex = "1"
+lazy_static = "1"
