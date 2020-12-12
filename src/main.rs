@@ -12,7 +12,6 @@ const SHINY_GOLD: &str = "shiny gold";
 fn lookup(color: &String,
           checked: &mut HashMap<String, bool>,
           bag_map: &HashMap<String, Bag>) -> bool {
-//    println!("lookup: {}", color);
     if color == SHINY_GOLD {
         return true;
     }
@@ -26,15 +25,12 @@ fn lookup(color: &String,
                 lookup(&color, checked, bag_map)
             })
             .is_some();
-//        println!("Checked bag: {} -> {} ", color, found);
         checked.insert(color.clone(), found);
         found
     }
 }
 
 fn solve_task1(bags: Vec<Bag>, bag_map: &HashMap<String, Bag>) {
-//    println!("solve_task1");
-
     let mut checked: HashMap<String, bool> = HashMap::new();
 
     let answer: Vec<bool> = bags.iter()
@@ -104,7 +100,6 @@ impl Bag {
             static ref LINE_RE : Regex = re("(^[a-z ]+) bags? contain (.*)");
             static ref BAG_RE : Regex = re("([0-9]+) ([a-z ]*) bag");
         }
-        // println!("Parsing {}", line);
         let outer: Vec<&str> = (*LINE_RE).captures(line)
             .expect(format!("Failed to parse {}", line).as_str())
             .iter().map(|s| s.unwrap().as_str())
